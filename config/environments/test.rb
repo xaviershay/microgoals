@@ -20,9 +20,6 @@ Microgoals::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Raise exceptions instead of rendering exception templates.
-  config.action_dispatch.show_exceptions = false
-
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
@@ -33,4 +30,7 @@ Microgoals::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # TODO: This is false by default but had to set to true for Capybara, weird.
+  config.action_dispatch.show_exceptions = true
 end

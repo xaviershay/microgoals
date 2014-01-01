@@ -1,0 +1,11 @@
+<h1>Goals</h1>
+
+<p>
+  <%= link_to "New Goal", new_goal_path %>
+</p>
+
+<% @goals.each do |goal| %>
+  <h3><%= goal.activity %></h3>
+  <p>Current: <%= goal.current %></p>
+  <p>Target: <%= goal.target %></p>
+<% end %>
