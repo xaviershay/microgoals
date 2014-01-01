@@ -10,7 +10,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'simple_form'
 
-gem 'rspec-rails', '3.0.0.beta1'
-gem 'vcr'
-gem 'webmock', '< 1.16'
-gem 'capybara-rails'
+group :test do
+  gem 'rspec-rails', '3.0.0.beta1'
+  gem 'vcr'
+  gem 'webmock', '< 1.16'
+  gem 'capybara-rails'
+end

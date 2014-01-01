@@ -8,11 +8,18 @@ module Tenarms
     end
 
     def max_lift(activity)
-      content = open("https://www.tenarms.net/api/dashboards/#{@id}").read
-
-      json = JSON.parse(content)
       max = json['lifts'].detect {|x| x['activity'] == activity }
       max['resistance'] if max
+    end
+
+    protected
+
+    def json
+      @json ||= begin
+        content = open("https://www.tenarms.net/api/dashboards/#{@id}").read
+
+        JSON.parse(content)
+      end
     end
   end
 end

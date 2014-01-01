@@ -6,6 +6,6 @@
 
 <% @goals.each do |goal| %>
   <h3><%= goal.activity %></h3>
-  <p>Current: <%= goal.current %></p>
+  <p>Current: <%= format_resistance goal.current %></p>
   <p>Target: <%= goal.target %></p>
 <% end %>
