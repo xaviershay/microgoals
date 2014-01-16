@@ -8,5 +8,6 @@
   <h3><%= goal.activity %></h3>
   <p>Current: <%= format_resistance goal.current %></p>
   <p>Target: <%= goal.target %></p>
+  <%= link_to("Edit", edit_goal_path(goal.id)) %>
   <%= button_to("Delete", goal_path(goal.id), method: :delete) %>
 <% end %>

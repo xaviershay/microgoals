@@ -17,10 +17,25 @@ class GoalsController < ApplicationController
     end
   end
 
+  def edit
+    @goal = Goal.find(params.require(:id))
+  end
+
+  def update
+    @goal = Goal.find(params.require(:id))
+
+    if @goal.valid?
+      @goal.update_attribute(:target, params.[:goal][:target])
+      redirect_to goals_path
+    else
+      render action: 'edit'
+    end
+  end
+
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
 
-    redirect_to action: 'index'
+    redirect_to goals_path
   end
 end
