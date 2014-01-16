@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def sketch
-    client = Tenarms::Client.new(params[:id])
-    @squat_max = client.max_lift("FrontSquat")
+    tenarms = Tenarms.new(params[:id])
+    @squat_max = tenarms.max_lift("FrontSquat")
     render text: "YOUR SQUAT MAX IS: #{@squat_max.inspect}"
   end
 end

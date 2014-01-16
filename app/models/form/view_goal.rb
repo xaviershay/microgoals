@@ -1,9 +1,9 @@
 module Form
   class ViewGoal
     def self.wrap
-      client_map = {}
+      tenarms_map = {}
       lambda do |dao|
-        x = client_map[dao.tenarms_id] ||= Tenarms::Client.new(dao.tenarms_id)
+        x = tenarms_map[dao.tenarms_id] ||= Tenarms.new(dao.tenarms_id)
         new(dao, tenarms_data: x)
       end
     end
