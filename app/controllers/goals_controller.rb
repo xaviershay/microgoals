@@ -16,4 +16,11 @@ class GoalsController < ApplicationController
       render action: 'new'
     end
   end
+
+  def destroy
+    @goal = Goal.find(params[:id])
+    @goal.destroy
+
+    redirect_to action: 'index'
+  end
 end

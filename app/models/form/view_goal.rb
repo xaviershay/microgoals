@@ -16,6 +16,7 @@ module Form
     def activity; dao.activity end
     def target; dao.target end
     def current; tenarms_data.max_lift(dao.activity); end
+    def id; dao.id end
 
     protected
 
