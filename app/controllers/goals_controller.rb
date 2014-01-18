@@ -25,7 +25,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params.require(:id))
 
     if @goal.valid?
-      @goal.update_attribute(:target, params.[:goal][:target])
+      @goal.update_attribute(:target, params[:goal][:target])
       redirect_to goals_path
     else
       render action: 'edit'
