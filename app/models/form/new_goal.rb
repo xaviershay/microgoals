@@ -1,16 +1,7 @@
 require 'active_model'
 
 module Form
-  class NewGoal
-    include ActiveModel::Validations
-    extend ActiveModel::Naming
-
-    ATTRIBUTES = [
-      :activity,
-      :target
-    ]
-    attr_accessor *ATTRIBUTES
-
+  class NewGoal < ::Form::Goal
     validates_presence_of :activity, :target
 
     def to_key; nil end
@@ -31,10 +22,6 @@ module Form
       )
 
       true
-    end
-
-    def self.name
-      "Goal"
     end
   end
 end

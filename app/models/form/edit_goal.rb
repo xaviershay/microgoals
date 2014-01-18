@@ -1,14 +1,8 @@
 require 'active_model'
 
 module Form
-  class EditGoal
-    include ActiveModel::Validations
-    extend ActiveModel::Naming
+  class EditGoal < ::Form::Goal
 
-    ATTRIBUTES = [
-      :target
-    ]
-    attr_accessor *ATTRIBUTES
     attr_reader :existing
 
     validates_presence_of :target
@@ -31,10 +25,6 @@ module Form
       existing.update_attributes!(target: target)
 
       true
-    end
-
-    def self.name
-      "Goal"
     end
   end
 end
