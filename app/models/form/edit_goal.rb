@@ -28,7 +28,7 @@ module Form
     def save
       return false unless valid?
 
-      existing.update_attribute(:target, target)
+      existing.update_attributes!(target: target)
 
       true
     end
