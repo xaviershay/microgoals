@@ -18,14 +18,16 @@ class GoalsController < ApplicationController
   end
 
   def edit
-    @goal = Goal.find(params.require(:id))
+    @goal = Form::EditGoal.new(Goal.find(params.require(:id)))
   end
 
   def update
-    @goal = Goal.find(params.require(:id))
+    @goal = Form::EditGoal.new(
+      Goal.find(params.require(:id)),
+      params.require(:goal)
+    )
 
-    if @goal.valid?
-      @goal.update_attribute(:target, params[:goal][:target])
+    if @goal.save
       redirect_to goals_path
     else
       render action: 'edit'
